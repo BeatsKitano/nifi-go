@@ -6,9 +6,10 @@
 package main
 
 import (
-	"nifi-go/internal/controller"
-	"nifi-go/internal/server"
-	"nifi-go/internal/service"
+	"nifi-go/internal/app/nifigo/api"
+	"nifi-go/internal/app/nifigo/server"
+	"nifi-go/internal/app/nifigo/service"
+	"nifi-go/internal/data"
 
 	"github.com/google/wire"
 	"github.com/labstack/echo/v4"
@@ -16,5 +17,5 @@ import (
 
 // wireApp init
 func wireApp() *server.HttpServer {
-	panic(wire.Build(controller.ControllerSet, service.ServiceSet, server.ServerSet, echo.New))
+	panic(wire.Build(api.ApiSet, service.ServiceSet, server.ServerSet, data.DataSet, echo.New))
 }

@@ -3,6 +3,8 @@ module nifi-go
 go 1.21.5
 
 require (
+	github.com/go-kratos/kratos/v2 v2.7.2
+	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/google/wire v0.5.0
 	github.com/labstack/echo/v4 v4.11.3
 )

@@ -8,9 +8,10 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"nifi-go/internal/controller"
-	"nifi-go/internal/server"
-	"nifi-go/internal/service"
+	"nifi-go/internal/app/nifigo/api"
+	"nifi-go/internal/app/nifigo/server"
+	"nifi-go/internal/app/nifigo/service"
+	"nifi-go/internal/data"
 )
 
 // Injectors from wire.go:
@@ -18,8 +19,10 @@ import (
 // wireApp init
 func wireApp() *server.HttpServer {
 	echoEcho := echo.New()
-	pageQuery := service.NewPageQuery()
-	pageController := controller.NewPageController(pageQuery)
+	dataData := data.NewData()
+	pageQueryRepo := data.NewPageQueryRepo(dataData)
+	pageQuery := service.NewPageQuery(pageQueryRepo)
+	pageController := api.NewPageController(pageQuery)
 	httpServer := server.NewHTTPServer(echoEcho, pageController)
 	return httpServer
 }

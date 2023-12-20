@@ -1,7 +1,7 @@
-package controller
+package api
 
 import (
-	"nifi-go/internal/service"
+	"nifi-go/internal/app/nifigo/service"
 
 	"github.com/labstack/echo/v4"
 )
