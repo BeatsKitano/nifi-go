@@ -4,5 +4,5 @@ import "github.com/google/wire"
 
 var DataSet = wire.NewSet(
 	NewData,
-	NewPageQueryRepo,
+	NewPageRepo,
 )

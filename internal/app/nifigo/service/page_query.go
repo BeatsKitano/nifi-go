@@ -1,18 +1,17 @@
 package service
 
-type PageQueryRepo interface {
-}
+import "context"
 
 type PageQuery struct {
-	query PageQueryRepo
+	page PageRepo
 }
 
-func NewPageQuery(query PageQueryRepo) *PageQuery {
+func NewPageQuery(page PageRepo) *PageQuery {
 	return &PageQuery{
-		query: query,
+		page: page,
 	}
 }
 
-func (q *PageQuery) List() (string, error) {
-	return "page list", nil
+func (q *PageQuery) List(ctx context.Context) (int32, []*Page, error) {
+	return q.page.List(ctx)
 }

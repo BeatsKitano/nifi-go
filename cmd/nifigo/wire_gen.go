@@ -20,8 +20,8 @@ import (
 func wireApp() *server.HttpServer {
 	echoEcho := echo.New()
 	dataData := data.NewData()
-	pageQueryRepo := data.NewPageQueryRepo(dataData)
-	pageQuery := service.NewPageQuery(pageQueryRepo)
+	pageRepo := data.NewPageRepo(dataData)
+	pageQuery := service.NewPageQuery(pageRepo)
 	pageController := api.NewPageController(pageQuery)
 	httpServer := server.NewHTTPServer(echoEcho, pageController)
 	return httpServer
