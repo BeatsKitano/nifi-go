@@ -12,6 +12,6 @@ func NewPageQuery(page PageRepo) *PageQuery {
 	}
 }
 
-func (q *PageQuery) List(ctx context.Context) (int32, []*Page, error) {
+func (q *PageQuery) List(ctx context.Context) ([]*Page, error) {
 	return q.page.List(ctx)
 }
